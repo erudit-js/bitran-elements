@@ -1,0 +1,37 @@
+{
+    "name": "@erudit-js/bitran-elements",
+    "description": "📜 A collection of Bitran elements for Erudit sites",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "bun unbuild --stub",
+        "build": "bun run prepack",
+        "prepack": "bun unbuild"
+    },
+    "main": "./dist/index.ts",
+    "exports": {
+        ".": "./dist/index.ts",
+        "./aliases/*": "./dist/elements/aliases/*.ts",
+        "./heading/*": "./dist/elements/heading/*.ts",
+        "./include/*": "./dist/elements/include/*.ts",
+        "./math/*": "./dist/elements/math/*.ts"
+    },
+    "files": [
+        "dist"
+    ],
+    "dependencies": {},
+    "peerDependencies": {
+        "@bitran-js/core": "link:@bitran-js/core",
+        "@bitran-js/transpiler": "link:@bitran-js/transpiler",
+        "@bitran-js/renderer-vue": "link:@bitran-js/renderer-vue",
+        "slugify": "^1.6.6",
+        "vue": "^3.5.13",
+        "katex": "^0.16.21"
+    },
+    "devDependencies": {
+        "@types/jest": "^29.5.14",
+        "sass": "^1.85.1",
+        "unbuild": "^3.5.0",
+        "vite": "^6.2.0",
+        "vue-tsc": "^2.2.4"
+    }
+}
