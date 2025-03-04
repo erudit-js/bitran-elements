@@ -22,7 +22,7 @@ it('Should correctly parse and stringify valid aliases', async () => {
     const parsed = await bitran.parser.parse(text);
 
     expect(
-        parsed.children!.map((node) => (node as AliasesNode).parseData)
+        parsed.children!.map((node) => (node as AliasesNode).parseData),
     ).toEqual([
         { foo: 'article|foo|bar' },
         {

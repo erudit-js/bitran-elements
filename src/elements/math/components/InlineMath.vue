@@ -34,7 +34,10 @@ const renderData = props.node.renderData;
 }
 
 .stringMath {
-    font: normal 1.15em KaTeX_Main, Times New Roman, serif;
+    font:
+        normal 1.15em KaTeX_Main,
+        Times New Roman,
+        serif;
     line-height: 1.2;
     text-indent: 0;
 

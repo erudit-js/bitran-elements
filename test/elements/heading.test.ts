@@ -26,7 +26,7 @@ it('Should correctly parse and stringify valid headings', async () => {
     const parsed = await bitran.parser.parse(text);
 
     expect(
-        parsed.children!.map((node) => (node as HeadingNode).parseData)
+        parsed.children!.map((node) => (node as HeadingNode).parseData),
     ).toEqual([
         { level: 1, title: 'Hello!' },
         { level: 2, title: 'This is me.' },

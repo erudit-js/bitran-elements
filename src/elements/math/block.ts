@@ -9,7 +9,7 @@ export interface BlockMathGroup<T = string> {
 
 export async function resolveMathGroups<T = string>(
     latex: string,
-    transform: (text: string) => Promise<T> | T = (text) => text as T
+    transform: (text: string) => Promise<T> | T = (text) => text as T,
 ): Promise<BlockMathGroup<T>> {
     // If there are no delimiters, return simple structure
     if (!latex.includes('>>')) {
@@ -62,7 +62,7 @@ export async function resolveMathGroups<T = string>(
 }
 
 export async function renderBlockMath(
-    latex: string
+    latex: string,
 ): Promise<BlockMathGroup<string>> {
     ensureMathNotEmpty(latex);
     return resolveMathGroups(latex, (text) => latexToHtml(text, 'block'));

@@ -27,7 +27,7 @@ export type InlineMathToken = { type: 'word' | 'other'; value: string };
  * Try to use simple string mode for inline math as it is significantly better for SEO and also faster
  */
 export function tryParseMathString(
-    expression: string
+    expression: string,
 ): InlineMathString | undefined {
     if (!expression) return undefined;
 
@@ -59,7 +59,7 @@ export function tryParseMathString(
 }
 
 export async function renderInlineMath(
-    expression: string
+    expression: string,
 ): Promise<InlineMathData> {
     ensureMathNotEmpty(expression);
 

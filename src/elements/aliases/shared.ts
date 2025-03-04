@@ -29,7 +29,7 @@ export function mergeAliases(documentAliases: Aliases, blockAliases: Aliases) {
     for (const [aliasName, aliasTarget] of Object.entries(blockAliases)) {
         if (documentAliases[aliasName]) {
             throw new Error(
-                `Alias "${aliasName}" already defined in document!`
+                `Alias "${aliasName}" already defined in document!`,
             );
         }
 

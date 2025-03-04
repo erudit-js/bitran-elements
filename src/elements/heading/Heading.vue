@@ -42,6 +42,6 @@ h4.h {
 :global(.bitran-blockContainer:not(:first-of-type)):has(
         :global(> .bitran-block > .bitran-blockMain) > .h
     ) {
-    margin-top: calc(var(--bitran_blocksGap) * 1.25);
+    margin-top: calc(var(--bitran_gapBlocks) * 1.25);
 }
 </style>

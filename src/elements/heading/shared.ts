@@ -9,7 +9,7 @@ export interface HeadingParseData {
 
 export type HeadingSchema = DefineElementSchema<{
     ParseData: HeadingParseData;
-    Provide?: { language: string };
+    Provide: { language: string };
 }>;
 
 export class HeadingNode extends BlockNode<HeadingSchema> {}

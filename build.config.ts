@@ -4,10 +4,9 @@ export default defineBuildConfig({
     declaration: true,
     entries: [
         {
+            input: 'src/',
+            loaders: ['js'],
             builder: 'mkdist',
-            input: './src/',
-            outDir: './dist',
-            loaders: ['js', 'vue'],
         },
     ],
 });

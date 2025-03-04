@@ -26,7 +26,9 @@ it('Should correctly parse and stringify normal includes', async () => {
     ];
 
     expect(
-        parsed.children!.map((node) => (node as IncludeNode).parseData.location)
+        parsed.children!.map(
+            (node) => (node as IncludeNode).parseData.location,
+        ),
     ).toEqual(locations);
 
     expect(await bitran.stringifier.stringify(parsed)).toEqual(text);

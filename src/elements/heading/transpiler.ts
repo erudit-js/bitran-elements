@@ -10,6 +10,7 @@ export const headingTranspiler = defineElementTranspiler<HeadingSchema>({
     Node: HeadingNode,
     Parsers: [HeadingParser],
     Stringifier: HeadingStringifier,
+    provide: { language: 'en' },
 });
 
 export const defineHeadingTranspiler =

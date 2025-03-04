@@ -63,7 +63,7 @@ export class MathStringifier extends StringifyFactory<
     BlockMathSchema | InlineMathSchema
 > {
     override async stringifyElement(
-        elementNode: BlockMathNode | InlineMathNode
+        elementNode: BlockMathNode | InlineMathNode,
     ) {
         return elementNode.parseData.src;
     }
