@@ -3,6 +3,9 @@
   "workspaces": {
     "": {
       "name": "@erudit-js/bitran-elements",
+      "dependencies": {
+        "@types/node": "^22.13.9",
+      },
       "devDependencies": {
         "@types/jest": "^29.5.14",
         "mkdist": "^2.2.0",

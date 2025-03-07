@@ -53,10 +53,10 @@
     ],
     "scripts": {
         "pretty": "prettier --write .",
-        "build": "bun unbuild",
-        "prepack": "bun run pretty && bun run build"
+        "dev": "bun run dev.ts",
+        "build": "bun mkdist -d --loaders=js",
+        "prepack": "bun run build"
     },
-    "dependencies": {},
     "peerDependencies": {
         "@bitran-js/core": "^1.0.0-dev.6",
         "@bitran-js/transpiler": "^1.0.0-dev.6",
@@ -67,6 +67,7 @@
     },
     "devDependencies": {
         "@types/jest": "^29.5.14",
+        "@types/node": "^22.13.9",
         "mkdist": "^2.2.0",
         "prettier": "^3.5.3",
         "sass": "^1.85.1",
