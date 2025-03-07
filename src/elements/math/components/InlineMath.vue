@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import type { ElementProps } from '@bitran-js/renderer-vue';
-import 'katex/dist/katex.min.css';
 
 import type { InlineMathSchema } from '../shared';
 import MathKatex from './MathKatex.vue';
@@ -27,6 +26,10 @@ const renderData = props.node.renderData;
         :mathHtml="renderData.html"
     />
 </template>
+
+<style lang="scss">
+@use 'katex/dist/katex.min.css';
+</style>
 
 <style lang="scss" module>
 .inlineMath {

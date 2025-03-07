@@ -43,12 +43,20 @@ export async function resolveMathGroups<T = string>(
 
     const parts: (T | BlockMathGroup<T>)[] = [];
 
-    // Process left part recursively if it contains delimiters
-    if (leftPart.includes('>>')) {
-        parts.push(await resolveMathGroups(leftPart, transform));
+    // Process left part with flattening if gap is the same
+    const leftResolved = leftPart.includes('>>')
+        ? await resolveMathGroups(leftPart, transform)
+        : await transform(leftPart.trim());
+
+    if (
+        typeof leftResolved === 'object' &&
+        leftResolved !== null &&
+        'gap' in leftResolved &&
+        leftResolved.gap === gap
+    ) {
+        parts.push(...leftResolved.parts);
     } else {
-        const trimmedLeft = leftPart.trim();
-        parts.push(await transform(trimmedLeft));
+        parts.push(leftResolved);
     }
 
     // Add right part

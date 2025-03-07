@@ -49,7 +49,7 @@ export class BlockMathParser extends BlockParseFactory<BlockMathSchema> {
 }
 
 export class InlineMathParser extends RegexpInlinerParseFactory<InlineMathSchema> {
-    regexp = /\$([^\$]+)\$/;
+    regexp = /\$([^\$]+)\$/g;
 
     override async parseDataFromRegexp(match: RegExpExecArray) {
         return {

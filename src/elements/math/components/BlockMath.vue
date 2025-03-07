@@ -10,7 +10,7 @@ const rootMathGroup = props.node.renderData;
 
 <template>
     <div>
-        <BlockMathGroup :group="rootMathGroup" />
+        <BlockMathGroup :group="rootMathGroup" :freeze="node.meta.freeze" />
     </div>
 </template>
 

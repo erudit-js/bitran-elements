@@ -18,10 +18,12 @@ describe('resolveMathGroups', () => {
     });
 
     test('should split by simple delimiter', async () => {
-        const result = await resolveMathGroups('a >> b');
+        const result = await resolveMathGroups(
+            '(a+b)^1 >> (a+b)^2 >> (a+b)^3 >> (a+b)^4 >> (a+b)^5',
+        );
         expect(result).toEqual({
             gap: 'normal',
-            parts: ['a', 'b'],
+            parts: ['(a+b)^1', '(a+b)^2', '(a+b)^3', '(a+b)^4', '(a+b)^5'],
         });
     });
 
@@ -51,6 +53,23 @@ describe('resolveMathGroups', () => {
                     parts: ['a', 'b'],
                 },
                 'c',
+            ],
+        });
+    });
+
+    test('should handle multiple parts with same gap and nesting', async () => {
+        const result = await resolveMathGroups(
+            '(a+b)^1 >> (a+b)^2 >> (a+b)^3 >>{30px} (a+b)^4 >>{30px} (a+b)^5',
+        );
+        expect(result).toEqual({
+            gap: '30px',
+            parts: [
+                {
+                    gap: 'normal',
+                    parts: ['(a+b)^1', '(a+b)^2', '(a+b)^3'],
+                },
+                '(a+b)^4',
+                '(a+b)^5',
             ],
         });
     });

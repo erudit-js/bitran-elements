@@ -2,7 +2,8 @@
 import type { BlockMathGroup } from '../block';
 import MathKatex from './MathKatex.vue';
 
-const props = defineProps<{ group: BlockMathGroup }>();
+const props = defineProps<{ group: BlockMathGroup; freeze?: boolean }>();
+
 const customGap = (() => {
     switch (props.group.gap) {
         case 'normal':
@@ -24,8 +25,9 @@ const customGap = (() => {
                 v-if="typeof part === 'string'"
                 :displayMath="true"
                 :mathHtml="part"
+                :freeze
             />
-            <BlockMathGroup v-else :group="part" />
+            <BlockMathGroup v-else :group="part" :freeze />
         </template>
     </div>
 </template>
